@@ -9,8 +9,12 @@
         <filter-class>meinFilter.BaseFilter</filter-class>
     </filter>
     <filter-mapping>
+        <filter-name>BaseFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
         <filter-name>ResponseFormatFilter</filter-name>
-        <url-pattern>/produkte/*</url-pattern>
+        <url-pattern>/index.jsp</url-pattern>
     </filter-mapping>
     <session-config>
         <session-timeout>

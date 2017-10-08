@@ -34,12 +34,13 @@ import javax.servlet.http.HttpServletResponse;
  * Diese Filter formattiert die resultierende HTML Seite und
  * versieht den Begriff 'Masterclass' mit zusätzlichen Links
  */
-
+//@WebFilter()
 public class ResponseFormatFilter extends BaseFilter implements Filter {
 
    /**
     * Filtert die resultierende Seite
     */
+   @Override
    public void doFilter(ServletRequest request,
                         ServletResponse response,
                         FilterChain chain)
@@ -59,9 +60,11 @@ public class ResponseFormatFilter extends BaseFilter implements Filter {
 
       // StringTokenizer zur Zerlegung in Worte
       //String[] contentArray= content.split(" ");
+     
       StringTokenizer st = new StringTokenizer(content, " \t\n\r,.;");
       while (st.hasMoreTokens()) {
          String word = st.nextToken();
+         System.out.println("Token:::::::::"+ word);
          if (word.equals("Masterclass")) {
              //;
              

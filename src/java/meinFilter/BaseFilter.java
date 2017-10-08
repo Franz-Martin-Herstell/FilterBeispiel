@@ -14,12 +14,14 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
  * @author Schulung
  */
+//@WebFilter(urlPatterns = "/*")
 public class BaseFilter implements Filter {
    /**
     * Die Konfiguration des Filters
@@ -41,7 +43,9 @@ public class BaseFilter implements Filter {
                         FilterChain chain)
       throws IOException, ServletException {
 
-      // Leitet den Request ohne Manipulationen weiter
+      // Leitet den Request mit Manipulationenauf das CharacterEncoding weiter
+       request.setCharacterEncoding("UTF-8");
+       response.setCharacterEncoding("UTF-8");
       chain.doFilter(request, response);
    }
 
